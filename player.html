@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Lightbox Example</title>
+
+  <script async src="https://cdn.ampproject.org/amp-story-player-v0.js"></script>
+  <link href="https://cdn.ampproject.org/amp-story-player-v0.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="player.css" media="all"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap" rel="stylesheet">
+  <meta http-equiv="Cache-control" content="private" max-age=10>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+</head>
+
+<body>
+  <div class="viewport">
+    <div class="entry-point-container">
+      <div class="circular-entry-point">
+        <div class="entry-points" id= "entry-points">
+        </div>
+      </div>
+    </div>
+
+    <div class="lightbox">
+      <amp-story-player  layout="fixed" width="100%" height="100%" class="my-player">
+        <script type="application/json">
+          {
+            "behavior": {
+              "autoplay": true,
+              "pageScroll": false
+            },
+            "controls": [{
+              "name": "close",
+              "position": "end"
+            }]
+          }
+        </script>
+        <script src="./player.js"></script>
+      </amp-story-player>
+    </div>
+  </div>
+</body>
+
+</html>
