@@ -1,13 +1,13 @@
 const lightboxEl = document.querySelector(".lightbox");
 const player = document.body.querySelector("amp-story-player");
 var limit = "4"
-var id = "YOUR ID"
+var id = "2234"
 var resApi = []
 
 // To be remplaced with prod values
-const apiEndpoint = 'https://api.zmoozy.com/channels/'+id+'/preview-stories?numberOfStories=' +limit
+const apiEndpoint = 'https://api-v2.zmooz.com/portal/stories?filter%5Blimit%5D='+limit+'&filter%5Boffset%5D=0&filter%5Border%5D%5B0%5D=lastPublishedAt%20desc&filter%5Bwhere%5D%5BchannelId%5D='+id+'&filter%5Bwhere%5D%5BaccessType%5D=1&filter%5Bwhere%5D%5BchannelStructure%5D=1'
 //Subdomain, needs to be updated, with the brand prod stories location"
-const domain = YOUR DOMAIN";
+const domain = "https://amp.zmooz.com";
 // Main widget function pulling data from the api once the player is ready
 if (player.isReady) {
   get_api_data(apiEndpoint);
@@ -38,7 +38,7 @@ async function get_api_data(url) {
     }).then(res => {
         res.map((element, index) =>{
           gen_thumbnails(element.image11, element.title.slice(0,  13) + '...', index)
-          resApi.push(element.share.ampLink)
+          resApi.push(element.ampLink)
         })
     });
 }
